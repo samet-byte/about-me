@@ -18,18 +18,20 @@ body {
   font-family: Arial, sans-serif;
   transition: background-color 0.3s ease;
 }
-#content-wrapper {
+.content-wrapper {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  position:fixed;
+  width: 100%;
   height: 100%;
-  transition: transform 0.3s ease;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 #outlet-container {
   position: relative;
   width: 110px;
   height: 100px;
+  margin-bottom: 20px;
 }
 #outlet {
   width: 110px;
@@ -67,7 +69,7 @@ body {
   background: black;
   border-top: 0;
   border-bottom: 0;
-  position: absolute;
+  position: relative;
   left: 37.5%;
   top: 55%;
   border-radius: 50% 50% 0 0; 
@@ -141,44 +143,3 @@ body {
   border-radius: 5px;
   cursor: pointer;
 }
-/* 
-#info {
-  display: none;
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: rgba(255, 255, 255, 0.9);
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  max-width: 300px;
-  color: black;
-}
-#skills {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  margin-top: 15px;
-}
-.skill {
-  background: #4CAF50;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 15px;
-  font-size: 0.9em;
-}
-#moreButton {
-  display: none;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background-color: #4CAF50;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-#moreButton:hover {
-  background-color: #45a049;
-} */
-

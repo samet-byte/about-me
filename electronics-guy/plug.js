@@ -4,40 +4,62 @@ const c = document.querySelector('#cord');
 const root = document.documentElement;
 let run = true;
 
+// Create content wrapper
+const contentWrapper = document.createElement('div');
+contentWrapper.id = 'content-wrapper';
+document.body.appendChild(contentWrapper);
+
+// Create outlet container
+const outletContainer = document.createElement('div');
+outletContainer.id = 'outlet-container';
+contentWrapper.appendChild(outletContainer);
+outletContainer.appendChild(o);
+
 // Add new elements
 const infoDiv = document.createElement('div');
 infoDiv.id = 'info';
-document.body.appendChild(infoDiv);
+contentWrapper.appendChild(infoDiv);
 
 const moreButton = document.createElement('button');
 moreButton.id = 'moreButton';
 moreButton.textContent = 'More Info';
 moreButton.onclick = () => window.location.href = '/more';
-infoDiv.appendChild(moreButton);
+contentWrapper.appendChild(moreButton);
+
+function updatePlugPosition() {
+  const outletRect = o.getBoundingClientRect();
+  const plugRect = p.getBoundingClientRect();
+  
+  const centerX = outletRect.left + outletRect.width / 2 - plugRect.width / 2;
+  const bottomY = outletRect.bottom - plugRect.height / 2;
+  
+  p.style.left = `${centerX}px`;
+  p.style.top = `${bottomY}px`;
+}
 
 function updateInfo(plugged) {
   if (plugged) {
     infoDiv.innerHTML = `
       <h2>Electrical-Electronics Engineer</h2>
-      <p>GPA: 3.0</p>
+      // <p>GPA: 3.0</p>
       <div id="skills">
-        <div class="skill">Circuit Design</div>
-        <div class="skill">PCB Layout</div>
-        <div class="skill">Microcontrollers</div>
-        <div class="skill">Signal Processing</div>
-        <div class="skill">Power Electronics</div>
+        <div class="skill">Skill 1</div>
+        <div class="skill">Skill 2</div>
+        <div class="skill">Skill 3</div>
       </div>
     `;
-    infoDiv.appendChild(moreButton);
     infoDiv.style.display = 'block';
     moreButton.style.display = 'block';
     root.style.setProperty('--bg-color', 'white');
     document.body.style.color = 'black';
+    contentWrapper.style.transform = 'translateY(-25%)';
+    setTimeout(updatePlugPosition, 10); // Slight delay to ensure DOM has updated
   } else {
     infoDiv.style.display = 'none';
     moreButton.style.display = 'none';
     root.style.setProperty('--bg-color', 'black');
     document.body.style.color = 'white';
+    contentWrapper.style.transform = 'translateY(0)';
   }
 }
 
@@ -62,8 +84,8 @@ function moveThePlug(e) {
     p.style.left = x + 'px';
     p.style.top = y + 'px';
     c.style.width = window.innerWidth - x - 35 + 'px';
-    c.style.height = window.innerHeight - y - 80 + 'px';
-  }
+    c.style.height = window.innerHeight - y - 80 + 'px';  
+  }  
 }
 
 ['mousemove', 'touchmove'].forEach(function(evt) {
@@ -72,6 +94,13 @@ function moveThePlug(e) {
 
 // Initialize the unplugged state
 updateInfo(false);
+
+// Update plug position on window resize
+window.addEventListener('resize', function() {
+  if (!run) {
+    updatePlugPosition();
+  }
+});
 
 // Initial positioning
 moveThePlug({ clientX: window.innerWidth * 0.75, clientY: window.innerHeight * 0.75 });

@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Plug for EE Students</title>
+    <style>
+        :root {
+            --bg-color:#080808;
+            --primary-color: #00ffff;
+            --secondary-color: #ff00ff;
+        }
+        html {
+            display:grid;
+            place-items:center;
+            min-height:100vh;
+            background:var(--bg-color);
+            font-family: 'Courier New', monospace;
+        }
+        #outlet {
+            width:110px;
+            height:100px;
+            font-size:48px;
+            position:relative;
+            text-align:center;
+            line-height:100px;
+            user-select:none;
+            background:gray;
+            border-radius:25% / 50%;
+            cursor:pointer;
+            box-sizing:border-box;
+            box-shadow:
+                inset 5px 5px rgba(255,255,255,.15),
+                inset -5px -5px dimgray,
+                5px 5px 5px rgba(0,0,0,.25);
+        }
+        #outlet:before {
+            content:'';
+            width:50%;
+            height:25%;
+            border:10px solid black;
+            border-top:0;
+            border-bottom:0;
+            position:absolute;
+            left:25%;
+            top:20%;
+            box-sizing:border-box;
+        }
+        #outlet:after {
+            content:'';
+            width:25%;
+            height:25%;
+            background:black;
+            border-top:0;
+            border-bottom:0;
+            position:absolute;
+            left:37.5%;
+            top:55%;
+            border-radius:50% 50% 0 0; 
+            box-sizing:border-box;
+        }
+        #plug {
+            width:80px;
+            height:80px;
+            top:calc(75% - 80px);
+            left:calc(50% - 35px);
+            background:
+                radial-gradient(circle at 50% 100%, black, transparent 33%),
+                linear-gradient(to top, #222 50%, transparent 50%),
+                linear-gradient(to right, transparent 14%, DarkGray 14%,  DarkGray 26%, transparent 26%, transparent 70%, DarkGray 70%, DarkGray 82%, transparent 82%);
+            position:fixed;  
+            pointer-events:none;
+            border-radius:0 0 50% 50%;
+            z-index:2;
+        }
+        #cord {
+            width:50%;
+            height:25%;
+            box-sizing:border-box;
+            position:fixed;
+            bottom:0;
+            right:0;
+            border-left:10px solid #111;
+            border-bottom:10px solid #111;
+            border-radius:0 0 0 15rem;
+            pointer-events:none;
+            z-index:1;
+        }
+        .plugged {
+            top:50% !important;
+            left:50% !important;
+            transform:translate(-50%, -50%);
+            background:radial-gradient(circle, #111 20%, #222 30%) !important;
+            border-radius:40% !important;
+            box-shadow:inset 0 0 15px black;
+        }
+        .plugged + div {
+            width:calc(50% + 5px) !important;
+            height:50% !important;
+            z-index:3 !important;
+        }
+        #company-info {
+            position: fixed;
+            /* 
+            top: 50%; 
+            transform: translate(-50%, -50%);
+            */
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%); /* Only translate horizontally */
+            background-color: rgba(0, 0, 0, 0.8);
+            color: var(--primary-color);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px var(--primary-color);
+            display: none;
+            z-index: 10;
+            max-width: 500px;
+            width: 90%;
+            border: 2px solid var(--primary-color);
+            animation: glow 2s infinite alternate;
+        }
+        #company-info.visible {
+            display: block;
+        }
+        #company-info h2 {
+            color: var(--secondary-color);
+            text-align: center;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        #company-info p {
+            margin-bottom: 10px;
+            line-height: 1.4;
+        }
+        #company-info .highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px var(--primary-color);
+            }
+            to {
+                box-shadow: 0 0 20px var(--primary-color), 0 0 30px var(--secondary-color);
+            }
+        }
+        #circuit-diagram {
+            width: 100%;
+            height: 100px;
+            background-color: rgba(0, 255, 255, 0.1);
+            margin-top: 15px;
+            border: 1px solid var(--primary-color);
+            position: relative;
+            overflow: hidden;
+        }
+        #circuit-line {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 0%;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 2s linear;
+        }
+        .circuit-active #circuit-line {
+            width: 100%;
+        }
+        #circuit-diagram::before, #circuit-diagram::after {
+            content: '⚡';
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 24px;
+            color: var(--secondary-color);
+        }
+        #circuit-diagram::before {
+            left: 10px;
+        }
+        #circuit-diagram::after {
+            right: 10px;
+        }
+        
+        
+        .highlight {
+            color: var(--secondary-color);
+            font-weight: bold;
+        }
+        .aptitudes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        .aptitude {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid var(--primary-color);
+            border-radius: 5px;
+            padding: 5px 10px;
+            display: flex;
+            align-items: center;
+            font-size: 0.9em;
+        }
+        .aptitude::before {
+            content: '⚡';
+            margin-right: 5px;
+            color: var(--secondary-color);
+        }
+        .learn-more-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: var(--secondary-color);
+            color: black;
+            border: none;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+        
+        .learn-more-btn:hover {
+            background-color: var(--primary-color);
+        }
+        
+        .learn-more-btn:active {
+            transform: scale(0.98);
+        }
+    </style>
+</head>
+<body>
+    <div id='outlet'></div>
+    <div id='plug'></div>
+    <div id='cord'></div>
+    <div id='company-info'>
+        <h2>Electric-Electronics Engineering Student</h2>
+        <p>GPA: <span class="highlight">3.75</span></p>
+        <p>Aptitudes:</p>
+        <div class="aptitudes">
+            <span class="aptitude">MATLAB</span>
+            <span class="aptitude">Proteus</span>
+            <span class="aptitude">Vivado</span>
+            <span class="aptitude">Signal Processing</span>
+            <span class="aptitude">Circuit Design</span>
+            <span class="aptitude">VLSI Design</span>
+            <span class="aptitude">Electric Machines</span>
+        </div>
+        <button 
+            class="learn-more-btn"
+            onclick="window.location.href = 'https://sametb.com';"
+            >Continue to Learn More</button>
+    </div>
+
+    <script>
+        const o = document.querySelector('#outlet'),
+              p = document.querySelector('#plug'),
+              c = document.querySelector('#cord'),
+              companyInfo = document.querySelector('#company-info'),
+              circuitDiagram = document.querySelector('#circuit-diagram');
+        var root = document.documentElement,
+            run = true;
+        function getColor() {
+            return 'hsl('+Math.floor(Math.random()*360)+'deg,75%,50%)';
+        }
+        o.addEventListener('click', function(e){
+            if(run) {
+                run = false;
+                p.classList.add('plugged');
+                p.style = '';
+                root.style.setProperty('--bg-color', '#ccc');
+                companyInfo.classList.add('visible');
+                circuitDiagram.classList.add('circuit-active');
+            } else {
+                run = true;
+                p.classList.remove('plugged');
+                root.style.setProperty('--bg-color', '#080808');
+                var x = e.clientX - 40;
+                var y = e.clientY - 40;
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                c.style.width = window.innerWidth - x - 35 + 'px';
+                c.style.height = window.innerHeight - y - 40 + 'px';
+                companyInfo.classList.remove('visible');
+                circuitDiagram.classList.remove('circuit-active');
+            }
+        });
+        function moveThePlug(e) {
+            e = e.type == 'touchmove' ? e.touches[0] : e;
+            if(run) {
+                var x = e.clientX - 40;
+                var y = e.clientY - 40;
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                c.style.width = window.innerWidth - x - 35 + 'px';
+                c.style.height = window.innerHeight - y - 80 + 'px';  
+            }  
+        }
+        ['mousemove','touchmove'].forEach( function(evt) {
+            window.addEventListener(evt, moveThePlug, false);
+        });
+    </script>
+</body>
+</html>
