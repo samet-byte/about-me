@@ -1,7 +1,7 @@
 function choosePill(color) {
             if (color === 'red') {
                 gsap.to(".container", {duration: 1, opacity: 0, scale: 0, rotation: 720, onComplete: () => {
-                    window.location.href = "/1";
+                    window.location.href = "/about-me/1";
                 }});
             } else {
                 gsap.to(".container", {duration: 1, opacity: 0, y: "-100%", ease: "power2.in", onComplete: () => {
