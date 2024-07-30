@@ -1,0 +1,40 @@
+body{
+    background:#1c0001
+  }
+  .show-my-awesome-picture{
+    display: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    color: #fff;
+  }
+
+   pre em:not(.comment) { font-style: normal; }
+  
+   .comment { 
+     color: #74f900; 
+   }
+   
+   .selector { 
+     color: #c66c75; 
+   }
+   
+   .selector .key { 
+     color: #c66c75; 
+   }
+   
+   .key { 
+     color: #c7ccd4; 
+   }
+   
+   .value { 
+     color: #d5927b; 
+   }
+
+   .who-the-heck-am-i {
+    display: none;
+  }

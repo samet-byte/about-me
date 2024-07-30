@@ -1,0 +1,264 @@
+
+ /*                   
+  * Hi, I am Samet Bayat.
+  * Oops, its gonna be better with colors I guess.                            
+  */
+
+  .comment{
+    color: #c66c75;
+  }
+
+
+ /* Who am I, right..? */       
+ /* Wait a sec, let's make it look better */
+ 
+ body {
+    background-color: #1a1c24;; 
+    color: #fff;
+    font-size: 13px; 
+    line-height: 1.4;
+    -webkit-font-smoothing: subpixel-antialiased;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  pre { 
+    position: fixed; 
+    width: 48%;
+    top: 30px; 
+    bottom: 30px; 
+    left: 26%;
+    transition: left 500ms;
+    overflow: auto;
+    
+  }
+
+   
+
+  /* Here is my picture */
+  .show-my-awesome-picture{
+    display:flex;
+  }
+
+  
+  /* It needs a tiny touch */
+  
+  .show-my-awesome-picture img{
+    width: 30%;
+    position:fixed;
+    top: 50%;
+    left: 50%;
+  }
+
+  /* Whoopsie */
+
+    pre {
+      /* background-color: #313744; */
+      color: #a6c3d4;
+      border: 1px solid rgba(0,0,0,0.2);
+      padding: 24px 12px;
+      box-sizing: border-box;
+      border-radius: 3px;
+      box-shadow: 0px 4px 0px 2px rgba(0,0,0,0.1);
+    }
+    
+    pre { 
+      left: 50%;
+      z-index: 4;
+    }
+    
+    .show-my-awesome-picture img {
+      left: 10%;
+      top: 25%;
+    }
+
+    /* Yup, thats me. */
+    
+    /* 
+     * I'd better put this frame aside, 
+     * because it's fragile like my soul.
+     */
+
+     .show-my-awesome-picture img {
+      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+      opacity: 0;
+      transform: scale(0.8);
+      display: none;
+    }
+
+
+
+
+
+
+  /* */
+  /* */
+  /* */
+
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  body {
+    color: #fff;
+  }
+
+    /* 
+   * şema 
+   */
+  
+   pre em:not(.comment) { font-style: normal; }
+  
+   .comment { 
+     color: #74f900; 
+   }
+   
+   .selector { 
+     color: #c66c75; 
+   }
+   
+   .selector .key { 
+     color: #c66c75; 
+   }
+   
+   .key { 
+     color: #c7ccd4; 
+   }
+   
+   .value { 
+     color: #d5927b; 
+   }
+
+
+
+
+   /* show my awesome picture */
+   .show-my-awesome-picture{
+    display: none;
+   }
+
+
+
+
+
+
+
+
+   /* Rotating-text */
+
+/*
+   .who-m-i {
+     display: none;
+     justify-content: center;
+     align-items: center;
+     top: 50%;
+     left: 50%;
+    }
+    
+    .who-m-i img {
+      width: 30%;
+   }
+
+*/
+
+   @import url(https://fonts.googleapis.com/css?family=Lato:600);
+
+  
+   
+   .what-do-i-do {
+       display: none;
+       position: relative;
+       width: 100%;
+       max-width: 1400px;  /* Adjust based on your image size */
+       margin: auto;
+       z-index: 5;
+   }
+   
+   .image-container {
+       position: relative;
+       width: 100%;
+       height: 0;
+       padding-bottom: 56.25%;  /* 16:9 Aspect Ratio */
+
+   }
+   
+   .background-image {
+       position: absolute;
+       top: 20%;
+       left: 5%;
+       width: 30%;
+       /* height: 100%; */
+       
+   }
+   
+   .rotating-text {
+       position: absolute;
+       top: 36%;
+       left: 21%;
+       transform: translate(-50%, -50%);
+       font-family: Lato, sans-serif;
+       font-weight: 600;
+       font-size: 28px;
+       color: white;
+       text-align: center;
+       text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+   }
+   
+   .rotating-text p {
+       display: inline-flex;
+       margin: 0;
+       vertical-align: top;
+   }
+   
+   .rotating-text p .word {
+       position: absolute;
+       display: flex;
+       opacity: 0;
+   }
+   
+   .rotating-text p .word .letter {
+       transform-origin: center center 25px;
+   }
+   
+   .rotating-text p .word .letter.out {
+       transform: rotateX(90deg);
+       transition: 0.32s cubic-bezier(0.6, 0, 0.7, 0.2);
+   }
+   
+   .rotating-text p .word .letter.in {
+       transition: 0.38s ease;
+   }
+   
+   .rotating-text p .word .letter.behind {
+       transform: rotateX(-90deg);
+   }
+
+.alizarin { color: #e74c3c; }
+.wisteria { color: #8e44ad; }
+.peter-river { color: #3498db; }
+.emerald { color: #2ecc71; }
+.sun-flower { color: #f1c40f; }
+
+.pomegranate { color: #c0392b; }
+.amethyst { color: #9b59b6; }
+.belize-hole { color: #2980b9; }
+.nephritis { color: #27ae60; }
+.orange { color: #f39c12; }
+.midnight-blue { color: #2c3e50; }
+.concrete { color: #95a5a6; }
+.carrot { color: #e67e22; }
+.turquoise { color: #1abc9c; }
+.pumpkin { color: #d35400; }
+.silver { color: #bdc3c7; }
+.asbestos { color: #7f8c8d; }
+
+
+
+.whats-going-on {
+  display: none; 
+  z-index: 13; 
+}
