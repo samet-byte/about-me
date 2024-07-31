@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Former Whistle Blower</title>
+    <link rel="stylesheet" href="./style.css">
+
+    <style>
+        
+        :root {
+            --margin: 10px;
+            --height: 50px;
+            --side-init: 10px;
+            --padding: 10px;
+            /* --top-center: calc(25% + var(--margin) + var(--height)); */
+            --top-center: calc(var(--side-init) + var(--margin) + var(--height) * 2);
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .icon, .text {
+            width: var(--height);
+            height: 50px;
+            padding: var(--padding);
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .text {
+            width: 150px;
+        }
+        .icon:hover, .text:hover {
+            transform: scale(1.2);
+        }
+        .top-left {
+            top: var(--side-init);
+            left: var(--side-init);
+        }
+        .left-center {
+            /* top:  calc(var(--side-init) + var(--margin) + var(--height)); */
+            top: var(--top-center);
+            left: var(--side-init);
+        }
+        .right-center {
+            /* top:  calc(var(--side-init) + var(--margin) + var(--height)); */
+            top: var(--top-center);
+            right: var(--side-init);
+        }
+        .top-right {
+            top: var(--side-init);
+            right: var(--side-init);
+        }
+        .bottom-left {
+            bottom: var(--side-init);
+            left: var(--side-init);
+        }
+        .bottom-right {
+            bottom: var(--side-init);
+            right: var(--side-init);
+        }
+        .text {
+            font-size: 24px;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 800;
+        }
+        .move {
+            width: 60px;
+        }
+    </style>
+
+
+</head>
+<body>
+
+    <div class="container">
+        <a href="/about-me/an-early-extinguished-star/">
+            <div class="text move bottom-right">More<br/>---></div>
+        </a>
+    </div>
+    
+</body>
+</html>

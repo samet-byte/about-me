@@ -91,8 +91,9 @@ window.addEventListener("load", function() {
       addDot();
   
       time = window.innerWidth <= 578 ? 4 : 16;
-      time = 100 * .25;
-      time = .1;
+      time = 25;
+      // time = 100 * .25;
+      // time = .1;
   
       // Load and apply styles
       loadExternalStyles(function(stylesContent) {

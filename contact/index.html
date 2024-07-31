@@ -1,0 +1,100 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+    <title>GITHUB: @samet-byte</title>
+    <link rel="stylesheet" href="./style.css">
+    <!-- <meta http-equiv="refresh" content="10; URL='https://sametb.com'"/> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Corner Icons</title>
+    <style>
+        
+        :root {
+            --margin: 10px;
+            --height: 50px;
+            --side-init: 10px;
+            --padding: 10px;
+            /* --top-center: calc(25% + var(--margin) + var(--height)); */
+            --top-center: calc(var(--side-init) + var(--margin) + var(--height) * 2);
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+        .icon, .text {
+            width: var(--height);
+            height: 50px;
+            padding: var(--padding);
+            position: absolute;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .text {
+            width: 150px;
+        }
+        .icon:hover, .text:hover {
+            transform: scale(1.2);
+        }
+        .top-left {
+            top: var(--side-init);
+            left: var(--side-init);
+        }
+        .left-center {
+            /* top:  calc(var(--side-init) + var(--margin) + var(--height)); */
+            top: var(--top-center);
+            left: var(--side-init);
+        }
+        .right-center {
+            /* top:  calc(var(--side-init) + var(--margin) + var(--height)); */
+            top: var(--top-center);
+            right: var(--side-init);
+        }
+        .top-right {
+            top: var(--side-init);
+            right: var(--side-init);
+        }
+        .bottom-left {
+            bottom: var(--side-init);
+            left: var(--side-init);
+        }
+        .bottom-right {
+            bottom: var(--side-init);
+            right: var(--side-init);
+        }
+        .text {
+            font-size: 24px;
+            color: #fff;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: 800;
+        }
+        .move {
+            width: 60px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="https://bytesizedadventures.onrender.com/">
+            <div class="text top-left">byte-sized<br/>adventures.</div>
+        </a>
+        <a href="https://cinequilt.netlify.app/">
+            <img src="./assets/cq.png" alt="Icon 1" class="icon left-center">
+        </a>
+        <a href="https://github.com/samet-byte/">
+            <img src="./assets/githubw.png" alt="Icon 2" class="icon top-right">
+        </a>
+        <a href="mailto:sametbayat@hotmail.com?subject=ABOUT%20..&body=Hello,%20I%20have%20a%20question%20about%20..">
+            <img src="./assets/mail.png" alt="Icon 1" class="icon bottom-left">
+        </a>
+        <a href="https://linkedin.com/in/sametbayat/">
+            <img src="./assets/in.png" alt="Icon 1" class="icon right-center">
+        </a>
+        <a href="/about-me/former-whistle-blower/">
+            <div class="text move bottom-right">More<br/>---></div>
+        </a>
+    </div>
+</body>
+</html>

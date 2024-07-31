@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://fonts.cdnfonts.com/css/cursed-timer-ulil"
+      rel="stylesheet"
+    />
+
+    <title>Basketball Scoreboard</title>
+  </head>
+  <body>
+    <div class="hero">
+      <div class="countdown">
+        <h1 id="timer">01:00</h1>
+      </div>
+      <div class="container">
+        <div class="scoreBoard">
+          <h3>HOME</h3>
+          <div class="scores">
+            <h1 id="homeScore">0</h1>
+          </div>
+          <div class="scoreBtns">
+            <button class="btn" id="home-one">+1</button>
+            <button class="btn" id="home-two">+2</button>
+            <button class="btn" id="home-three">+3</button>
+          </div>
+        </div>
+
+        <div class="scoreBoard">
+          <h3>GUEST</h3>
+          <div class="scores">
+            <h1 id="guestScore">0</h1>
+          </div>
+          <div class="scoreBtns">
+            <button class="btn" id="guest-one">+1</button>
+            <button class="btn" id="guest-two">+2</button>
+            <button class="btn" id="guest-three">+3</button>
+          </div>
+        </div>
+      </div>
+
+      <button class="btn" id="resetGame">NEW GAME</button>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>

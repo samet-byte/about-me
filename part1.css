@@ -8,9 +8,29 @@
   .comment{ color: #74f900;  }
 
 
- /* Who am I, right..? */       
- /* Wait a sec, let's make it look better */
- 
+   /* 
+    * If you don't see some parts
+    * of this text,
+    * it's probably
+    * your browser extensions interfering.
+    * Try disabling them.
+    * or just use a different browser.
+    * or go Incognito.
+    */
+
+
+  /*
+    * If you see clearly,
+    * sorry,
+    * you just wasted your time
+    * while reading this.
+    */
+
+  /* Anyways.. */
+
+  /* Who am I, right..? */       
+  /* Wait a sec, let's make it look better */
+  
  body {
     background-color: #1a1c24;; 
     color: #fff;
@@ -37,6 +57,7 @@
    
 
   /* Here is my picture */
+
   .show-my-awesome-picture{
     display:flex;
   }
@@ -53,51 +74,51 @@
 
   /* Whoopsie */
 
-    pre {
-      background-color: #313744;
-      color: #a6c3d4;
-      border: 1px solid rgba(0,0,0,0.2);
-      padding: 24px 12px;
-      box-sizing: border-box;
-      border-radius: 3px;
-      box-shadow: 0px 4px 0px 2px rgba(0,0,0,0.1);
-    }
+  pre {
+    background-color: #313744;
+    color: #a6c3d4;
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 24px 12px;
+    box-sizing: border-box;
+    border-radius: 3px;
+    box-shadow: 0px 4px 0px 2px rgba(0,0,0,0.1);
+  }
     
-    pre { 
-      left: 50%;
-      z-index: 4;
-    }
-    
-    .show-my-awesome-picture img {
-      left: 10%;
-      top: 25%;
-    }
+  pre { 
+    left: 50%;
+    z-index: 4;
+  }
+  
+  .show-my-awesome-picture img {
+    left: 10%;
+    top: 25%;
+  }
 
-    /* Yup, thats me. */             
+  /* Yup, thats me. */             
                                                                 
-    /* 
-     * I'd better put this frame aside, 
-     * because it's fragile like my soul.
-     */
+  /* 
+   * I'd better put this frame aside, 
+   * because it's fragile like my soul.
+   */
+                                                                                
+  .show-my-awesome-picture img {
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    opacity: 0;
+    transform: scale(0.8);
+    display: none;
+  }
 
-     .show-my-awesome-picture img {
-      transition: opacity 0.5s ease-out, transform 0.5s ease-out;
-      opacity: 0;
-      transform: scale(0.8);
-      display: none;
-    }
 
-
- /* Hmm, guess you want to know */
- /* What do I do? */
+  /* Hmm, guess you still want to know */
+  /* Who am I, right? */
                                         
                                         
- .who-the-heck-am-i {
-  display: flex;
-  z-index: 20;
- }
-                                                            
- .part1 {
-  display: none;
- }
+  .who-the-heck-am-i {
+    display: flex;
+    z-index: 20;
+  }
+                                                              
+  .part1 {
+    display: none;
+  }
  

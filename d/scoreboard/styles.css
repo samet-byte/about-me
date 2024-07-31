@@ -1,0 +1,174 @@
+body {
+  margin: 0;
+  background: #1B244A;
+
+}
+.hero{
+display: flex;
+flex-direction: column;
+justify-content: center;
+width: 500px;
+margin: 0 auto;
+height: 100vh;
+max-width: 100%;
+
+}
+
+.container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+ 
+}
+
+.scoreBoard{
+  color: #ffffff;
+  font-family: Verdana; 
+  text-align: center;
+
+}
+
+h3{
+  
+  font-size: 40px;
+  font-weight: 700;
+  line-height: 36px;
+
+
+}
+
+.scores{
+  font-family: 'Cursed Timer ULiL', sans-serif;
+  border-radius: 5px;
+  width: 155px;
+  height: 120px;
+  background: #080001;
+  text-align: center;
+}
+
+.countdown{
+  font-family: 'Cursed Timer ULiL', sans-serif;
+  border: 4px solid #ffffff;
+  border-radius: 5px;
+  width: 300px;
+  height: 125px;
+  background: #080001;
+  text-align: center;
+  margin: 0px auto;
+ 
+}
+
+#timer{
+  font-size: 70px;
+  color: greenyellow;
+}
+
+h1{
+  font-size: 90px;
+  font-weight: 400;
+  color: #F94F6D;
+  margin: 0;
+  line-height: 127px;
+}
+
+.scoreBtns{
+ display: flex;
+ justify-content: space-between;
+ flex-wrap: wrap;
+ width: 155px;
+ height: 45px ;
+ margin-top: 26px; 
+
+
+}
+
+.btn{
+  border-radius: 5px;
+  width: 45px;
+  border: 2px solid #9AABD8;
+  background: none;
+  color: #9AABD8;
+  font-family: Cursed Timer ULiL;
+  font-size: 18px;
+  font-weight: 400;
+  text-align: center;
+  
+  
+}
+
+.btn:hover{
+  border: 3px solid #b9c9f5;
+}
+
+#resetGame{
+  width: 400px;
+  margin: 30px auto;
+  padding: 5px 10px;
+  height: 45px;
+  background: none;
+  border: 2px solid #9AABD8;
+  color: #ffffff;
+  font-family: Verdana; 
+  font-size: 24px;
+  font-weight: 700;
+
+
+}
+
+#resetGame:hover{
+  border: 3px solid #b9c9f5;
+}
+
+#winner{
+  background : url("images/win.webp");
+  background-size: cover;
+  height: 125px;
+  font-size: 35px;
+  font-family: Verdana;
+  color: greenyellow;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px black;
+}
+
+#tie{
+  background : url("images/tie.webp");
+  background-size: cover;
+  height: 125px;
+  font-size: 35px;
+  font-family: Verdana;
+  color: greenyellow;
+  font-weight: 700;
+  text-shadow: 2px 2px 2px black;
+}
+
+
+@media (max-width: 500px) {
+  .container {
+      flex-direction: column; /* Stack scoreboards vertically on smaller screens */
+      align-items: center; /* Center align scoreboards */
+      text-align: center;
+      margin: 0px auto;
+  }
+
+  .countdown {
+      width: 200px;
+  }
+  #timer{
+      font-size: 50px;
+
+  }
+
+  #resetGame{
+      width: 200px;
+  }
+
+  #winner {
+      font-size: 20px;
+  }
+  #tie {
+      font-size: 20px;
+  }
+  .countdown{
+      margin-top: 50px
+  }
+}

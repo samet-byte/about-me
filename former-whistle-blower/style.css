@@ -1,0 +1,109 @@
+html {
+    --green: #4c7;
+    --light: #5d8;
+    background: var(--green);
+  }
+  
+  body {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Courier New', Courier, monospace;
+    width: 80vmin;
+    height: 50vmin;
+    border: 0.5vmin solid white;
+    background-image:
+      radial-gradient(circle at 0% 0%, transparent 1%, white 0 1.5%, transparent 0),
+      radial-gradient(circle at 100% 0%, transparent 1%, white 0 1.5%, transparent 0),
+      radial-gradient(circle at 0% 100%, transparent 1%, white 0 1.5%, transparent 0),
+      radial-gradient(circle at 100% 100%, transparent 1%, white 0 1.5%, transparent 0),
+      radial-gradient(circle at 50% 50%, white 1%, transparent 0),
+      radial-gradient(circle at 50% 50%, transparent 14%, white 0 14.75%, transparent 0),
+      radial-gradient(circle at 16% 50%, transparent 10%, white 0 10.5%, transparent 0),
+      radial-gradient(circle at 84% 50%, transparent 10%, white 0 10.5%, transparent 0),
+      linear-gradient(to right, transparent 49.75%, white 0 50.25%, transparent 0),
+      repeating-linear-gradient(to right, var(--green) 0 10%, var(--light) 0 20%);
+  }
+  
+  body::before {
+    content:"";
+    display: block;
+    position: absolute;
+    width: 7%;
+    top: 50%;
+    left: 0;
+    transform: translate(0, -50%);
+    height: 25%;
+    background: var(--green);
+    box-shadow: 
+      inset 0 0 0 5vmin var(--green),
+      0 0 0 0.35vmin white,
+      1.2vmin 0 0 1.2vmin var(--green),
+      1.2vmin 4vmin 0 1.2vmin var(--green),
+      1.2vmin -4vmin 0 1.2vmin var(--green),
+      5.2vmin 0 0 5.2vmin var(--light),
+      5.2vmin 0 0 5.5vmin white,
+      74.5vmin 0 var(--light),
+      74.5vmin 0 0 0.35vmin white,
+      73.3vmin 0 0 1.2vmin var(--light),
+      73.3vmin 4vmin 0 1.2vmin var(--light),
+      73.3vmin -4vmin 0 1.2vmin var(--light),
+      69.2vmin 0 0 5.2vmin var(--green),
+      69.2vmin 0 0 5.5vmin white,
+      -4vmin 0 0 -2vmin #0003,
+      78.5vmin 0 0 -2vmin #0003
+  }
+  
+  body::after {
+    content: "I'm a Former Football Referee.";
+    white-space: pre;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 4vmin;
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+    font-family:'Courier New', Courier, monospace;
+    position: absolute;
+    border-radius: 50%;
+    height: 2.5vmin;
+    width: 2.5vmin;
+    left: 50%;
+    top: -7.5%;
+    transform: translate(-50%, -50%);
+    box-shadow:
+      -29vmin 29vmin 0 -0.9vmin white,
+      29vmin 29vmin 0 -0.9vmin white,
+      
+      -38vmin 29vmin #fe3,
+      -24vmin 12vmin #369,
+      -25vmin 25vmin #369,
+      -24vmin 35.5vmin #369,
+      -23vmin 48vmin #369,
+      -10vmin 12vmin #369,
+      -13.4vmin 26vmin #369,
+      -12vmin 35.5vmin #369,
+      -9vmin 48vmin #369,
+      -1.5vmin 27.5vmin #369,
+      -1vmin 30.5vmin #369,
+      
+      36vmin 29vmin #49f,
+      24vmin 12vmin #c33,
+      25vmin 25vmin #c33,
+      24vmin 35.5vmin #c33,
+      24.5vmin 48vmin #c33,
+      14vmin 17vmin #c33,
+      17vmin 29vmin #c33,
+      13vmin 42vmin #c33,
+      1.5vmin 44vmin #c33,
+      1.5vmin 18.5vmin #c33,
+      6.5vmin 32.5vmin #c33,
+      
+      -2vmin 21vmin #222,
+      25vmin 56vmin #222,
+      -24vmin 2vmin #222
+  }
+  
+  
