@@ -31,6 +31,10 @@ video {
   transition: 1s;
 }
 
+a {
+  text-decoration: none;
+}
+
 .main {
   width: 1025px;
   height: 600px;
@@ -810,10 +814,15 @@ iframe {
 /**/
 .buttons {
   display: flex;
+  flex-direction: column;
   position: fixed;
   top: 50px;
   right: 50px;
   transform: translateZ(5000px);
+}
+
+.buttons p {
+  text-align: center;
 }
 
 .button {
@@ -833,6 +842,7 @@ iframe {
   text-transform: uppercase;
   background-image: linear-gradient(to right, #51546a 70%, #46485b 70%);
   color: white;
+  margin-bottom: 3px;
 }
 .button__icon {
   height: 20px;
