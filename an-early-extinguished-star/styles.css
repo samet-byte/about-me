@@ -1,93 +1,76 @@
-
 body {
-  background: #2e394d;
-  background: #dec387;
-  /* background: #fdb827;; */
+	background: #dec387;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
 	align-items: center;
-}
-
-* {
-	box-sizing: border-box;
-	&:before, &:after {
-		content: '';
-		position: absolute;
-	}
-}
-
-input {
-	height: 40px;
-	left: 0;
-	opacity: 0;
-	position: absolute;
-	top: 0;
-	width: 40px;
+	font-family: 'Rubik', sans-serif;
 }
 
 .toggle-wrapper {
-	flex: 1 1 calc(100% / 3);
+	flex: 1 1 100%;
 	min-height: 50vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	overflow: hidden;
 	position: relative;
-	@media (max-width: 960px) {
-		flex: 1 1 calc(100% / 2);
-	}
-	@media (max-width: 700px) {
-		flex: 1 1 100%;
-	}
-	&:nth-child(1) {
-		background: #dec387;
-	}
-	&:nth-child(2) {
-		background: #de8797;
-	}
-	&:nth-child(3) {
-		background: #87aade;
-	}
-	&:nth-child(4) {
-		background: #c5de87;
-	}
-	&:nth-child(5) {
-		background: #87ded2;
-	}
-	&:nth-child(6) {
-		background: #c487de;
-	}
-	&:nth-child(7) {
-		background: #de8787;
-		.toggle {
-			transform: translate(-40px, 40px);
-		}
-	}
-	&:nth-child(8) {
-		background: #decf87;
-		.toggle {
-			transform: translate(-40px, 40px);
-		}
-	}
+	background: #dec387;
+}
+
+.name, .more {
+	position: absolute;
+	font-size: 14px;
+	font-weight: 500;
+	letter-spacing: 0.5px;
+	text-transform: uppercase;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	opacity: 0;
+	visibility: hidden;
+	transition: opacity 0.9s ease, visibility 0.9s ease;
 }
 
 .name {
-	width: 80%;
-	position: absolute;
-	font: 500 14px 'Rubik', sans-serif;
-	letter-spacing: .5px;
-	text-transform: uppercase;
-	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
 	bottom: 15px;
-	right: 15px;
+	left: 15px;
+}
+
+.more {
+	bottom: 25px;
+	right: 25px;
 	text-align: right;
+	transition: opacity 0.9s ease, visibility 0.9s ease, transform 0.6s ease;
+}
+
+.more:hover {
+	transform: scale(1.1);
+}
+
+.name.show, .more.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+a {
+	text-decoration: none;
+	color: #000000;
 }
 
 .toggle {
 	position: relative;
 	display: inline-block;
 }
+
+/* Make the checkbox transparent and cover the entire toggle area */
+input[type="checkbox"] {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1;
+}
+
 
 label.toggle-item {
 	width: 7em;
@@ -100,88 +83,76 @@ label.toggle-item {
 	transition: all .3s ease;
 	transform-origin: 20% center;
 	cursor: pointer;
-	&:before {
-		display: block;
-		transition: all .2s ease;
-		width: 2.3em;
-    height: 2.3em;
-		top: .25em;
-		left: .25em;
-    border-radius: 2em;
-    border: 2px solid #88cf8f;
-		transition: .3s ease;
-	}
 }
 
-
-
-
-
-.basketball-hoop {
-	label {
-		background: #fdb827;
-	}
-	label:before {
-		content: none;
-	}
-	.ball {
-    border-radius: 50%;
-    width: 2.5em;
-    height: 2.5em;
-    position: absolute;
-    background: #FF9800;
-    border: 2px solid black;
-    transition: .4s ease;
-    top: 4px;
-    left: 4px;
-    background-image: radial-gradient(circle at -5px 10px, transparent 15px, black 15px, black 17px, transparent 17px), radial-gradient(circle at 41px 25px, transparent 15px, black 15px, black 17px, transparent 17px), linear-gradient(110deg, transparent 22px, black 22px, black 24px, transparent 24px), linear-gradient(18deg, transparent 22px, black 22px, black 24px, transparent 24px);
-		&__wrapper {
-			transition: .4s ease;
-			width: 195%;
-			height: 200%;
-			transform-origin: 50% -2%;
-		}
-	}
-	.hoop {
-		top: -50px;
-    right: -84px;
-    width: 50px;
-    background: #f44336;
-    height: 8px;
-    position: absolute;
-		&:before {
-			position: absolute;
-			right: -4px;
-			width: 7px;
-			height: 60px;
-			background: #cd2e22;
-			top: -40px;
-		}
-		&:after {
-			width: 40px;
-			height: 35px;
-			background: repeating-linear-gradient(45deg, transparent, transparent 13px, white 13px, white 15px), repeating-linear-gradient(-45deg, transparent, transparent 13px, white 13px, white 15px);
-			top: 8px;
-			border-radius: 0 0 20% 20%/40% 40% 60% 60%;
-			border: 2px solid #fff;
-			border-width: 0 2px;
-			left: 2px;
-			z-index: 20;
-		}
-	}
+.basketball-hoop label {
+	background: #fdb827;
 }
-	
-#hoop:checked  {
-	+ label {
-		background: #542583;
-		transition-delay: 1.35s;
-		.ball__wrapper {
-			animation: 1.5s linear ball-wrapper forwards;
-		}
-		.ball {
-			animation: 1.5s linear ball forwards;
-		}
-	} 
+
+.ball {
+	border-radius: 50%;
+	width: 2.5em;
+	height: 2.5em;
+	position: absolute;
+	background: #FF9800;
+	border: 2px solid black;
+	transition: .4s ease;
+	top: 4px;
+	left: 4px;
+	background-image: radial-gradient(circle at -5px 10px, transparent 15px, black 15px, black 17px, transparent 17px), radial-gradient(circle at 41px 25px, transparent 15px, black 15px, black 17px, transparent 17px), linear-gradient(110deg, transparent 22px, black 22px, black 24px, transparent 24px), linear-gradient(18deg, transparent 22px, black 22px, black 24px, transparent 24px);
+}
+
+.ball__wrapper {
+	transition: .4s ease;
+	width: 195%;
+	height: 200%;
+	transform-origin: 50% -2%;
+}
+
+.hoop {
+	top: -50px;
+	right: -84px;
+	width: 50px;
+	background: #f44336;
+	height: 8px;
+	position: absolute;
+}
+
+.hoop:before {
+	content: '';
+	position: absolute;
+	right: -4px;
+	width: 7px;
+	height: 60px;
+	background: #cd2e22;
+	top: -40px;
+}
+
+.hoop:after {
+	content: '';
+	position: absolute;
+	width: 40px;
+	height: 35px;
+	background: repeating-linear-gradient(45deg, transparent, transparent 13px, white 13px, white 15px), repeating-linear-gradient(-45deg, transparent, transparent 13px, white 13px, white 15px);
+	top: 8px;
+	border-radius: 0 0 20% 20%/40% 40% 60% 60%;
+	border: 2px solid #fff;
+	border-width: 0 2px;
+	left: 2px;
+	z-index: 20;
+}
+
+#hoop:checked + label {
+	background: #542583;
+	transition-delay: 1.35s;
+}
+
+#hoop:checked + label .ball__wrapper {
+	animation: 1.5s linear ball-wrapper forwards;
+}
+
+#hoop:checked + label .ball {
+	animation: 1.5s linear ball forwards;
 }
 
 @keyframes ball {
