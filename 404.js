@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function walkLeft() {
   player.className = "walk-left";
-  setTimeout(searchLeft, 1000);
+  setTimeout(searchLeft, 3000);
 }
 function searchLeft() {
   player.className = "search-left";
@@ -18,7 +18,7 @@ function searchLeft() {
 }
 function walkRight() {
   player.className = "walk-right";
-  setTimeout(searchRight, 1000);
+  setTimeout(searchRight, 3000);
 }
 function searchRight() {
   player.className = "search-right";

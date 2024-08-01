@@ -90,13 +90,13 @@
   }
 }
 .walk-left {
-  -webkit-animation: walk-left-loop 0.2s steps(2) infinite, walk-left 1s linear;
-          animation: walk-left-loop 0.2s steps(2) infinite, walk-left 1s linear;
+  -webkit-animation: walk-left-loop 0.2s steps(2) infinite, walk-left 3s linear;
+          animation: walk-left-loop 0.2s steps(2) infinite, walk-left 3s linear;
 }
 
 .walk-right {
-  -webkit-animation: walk-right-loop 0.2s steps(2) infinite, walk-right 1s linear;
-          animation: walk-right-loop 0.2s steps(2) infinite, walk-right 1s linear;
+  -webkit-animation: walk-right-loop 0.2s steps(2) infinite, walk-right 3s linear;
+          animation: walk-right-loop 0.2s steps(2) infinite, walk-right 3s linear;
 }
 
 .idle {
