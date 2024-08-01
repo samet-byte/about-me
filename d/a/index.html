@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Stuff</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="corner.css">
+    <style>
+        /* Embed */
+        .copy-button {
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .copy-button:hover {
+            background-color: #45a049;
+        }
+
+        .embed-code {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+            <div class="text top-left" onclick="copyEmbedCode()">&lt;/&gt;</div>
+    </div>
+</body>
+
+<script>
+    
+    // Function to get URL parameters
+    function getUrlParameter(name) {
+        name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+        var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+        var results = regex.exec(location.search);
+        return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+    }
+
+
+    // Function to validate and format color
+    function validateColor(color) {
+        // Check if it's a valid CSS color name
+        const s = new Option().style;
+        s.color = color;
+        if (s.color === color.toLowerCase()) return color;
+
+        // Check if it's a valid hex color
+        if (/^#?([0-9A-F]{3}){1,2}$/i.test(color)) {
+            // Ensure it starts with #
+            return color.charAt(0) === '#' ? color : `#${color}`;
+        }
+
+        // If not valid, return null
+        return null;
+    }
+    
+
+    // Function to update CSS variables
+    function updateCSSVariables() {
+        const root = document.documentElement;
+
+        // Update size
+        const size = getUrlParameter('s') || getUrlParameter('size');
+        if (size) {
+            root.style.setProperty('--size', size);
+        }
+
+        // Update message
+        const message = getUrlParameter('m') || getUrlParameter('message');
+        if (message) {
+            root.style.setProperty('--message', `"${message}"`);
+        }
+
+        const title = getUrlParameter('t') || getUrlParameter('title');
+        if (title) {
+            document.title = title;
+        }
+
+        const bg = getUrlParameter('bg') || getUrlParameter('background');
+        if (bg) {
+            const validColor = validateColor(bg);
+            if (validColor) {
+                root.style.setProperty(`--background`, validColor);
+            } else {
+                console.warn(`Invalid color value: ${bg}`);
+            }
+        }
+
+        const embedColor = getUrlParameter('ec') || getUrlParameter('embedColor');
+        if (embedColor) {
+            const validColor = validateColor(embedColor);
+            if (validColor) {
+                root.style.setProperty(`--text-color`, validColor);
+            } else {
+                console.warn(`Invalid color value: ${embedColor}`);
+            }
+        }
+
+
+
+        // You can add more parameters here as needed
+    }
+
+    // Call the function when the page loads
+    window.onload = updateCSSVariables;
+</script>
+
+<!-- <script>
+    // Function to get all URL parameters
+    function getAllUrlParameters() {
+        const params = {};
+        const searchParams = new URLSearchParams(window.location.search);
+        for (const [key, value] of searchParams) {
+            params[key] = value;
+        }
+        console.log(params);
+        return params;
+    }
+
+    // Function to update CSS variables
+    function updateCSSVariables() {
+        const root = document.documentElement;
+        const params = getAllUrlParameters();
+//NOT WORKED
+        for (const [param, value] of Object.entries(params)) {
+            console.log(param + "   " + param.typeof);
+            if (value.typeof === 'number') {
+                root.style.setProperty(`--${param}`, value);
+                continue;
+            } else if (value.typeof === 'string') {
+                root.style.setProperty(`--${param}`, `"${value}"`);
+                continue;
+            }
+            console.warn(`Invalid value for parameter ${param}: ${value}`);
+        
+        }
+
+        // Log the updated CSS variables (for debugging)
+        console.log('Updated CSS variables:', params);
+    }
+
+    // Call the function when the page loads
+    window.onload = updateCSSVariables;
+</script> -->
+
+<!-- Embed -->
+<script>
+    function copyEmbedCode() {
+        // const embedCodeElement = document.getElementById('embedCode');
+        const embedCode = 
+`<iframe 
+    src="${window.location.href}" 
+    style="border:none;" 
+    title="${document.title}">
+</iframe>`;
+
+        navigator.clipboard.writeText(embedCode).then(() => {
+            alert('Embed code copied to clipboard!');
+        }).catch(err => {
+            console.error('Could not copy text: ', err);
+        });
+    }
+</script>
+
+
+</html>
