@@ -26,7 +26,7 @@
   </style>
 
 </head>
-<body>
+
   <header></header>
   <!-- bubble introducing a scene -->
 <div class="bubble">
@@ -34,6 +34,14 @@
 	<strong>Handpicked</strong> Movie Recommendations<br/>
 	--------<br/>
 	hover for more info
+  </div>
+
+  <div >
+    <dotlottie-player 
+      id="loading"
+      src="https://lottie.host/4513932f-c1d9-41e9-b2b7-abab4de87905/jSCnBJJgwS.json" 
+      background="transparent" speed="1" style="width: 100%; " direction="1" playMode="normal" loop autoplay>
+    </dotlottie-player>
   </div>
   <!-- <center><mytitle><h1>Screen Gems<br/>Handpicked Movie Recommendations</h1></mytitle></center> -->
   <div class="wrapper">
@@ -45,17 +53,26 @@
 
    <a class="ccolor" href="https://cinequilt.netlify.app" target="_blank">
 		<div class="bubble">
-			FOR MORE MOTION PICTURES<BR/>
-			CINEQUILT.NETLIFY.APP
+      <strong>
+        FOR MORE MOTION PICTURES<BR/>
+        CINEQUILT.NETLIFY.APP
+      </strong>
 		</div>
     </a>
   </div>
   <!-- bubble highlighting something  -->
-   <a href="/about-me/ai/"
+   <a href="/about-me/ai/">
 	<div class="bubble bubble--highlight">
 		LET THE JOURNEY CONTINUE
 	</div>
+  </a>
 
-  <script src="./script.js"></script>
+ 
+
+  
+
+
 </body>
+<script src="./script.js"></script>
+<script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script>
 </html>

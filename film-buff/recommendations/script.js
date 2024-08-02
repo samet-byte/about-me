@@ -43,7 +43,16 @@ async function fetchMovieData() {
   // Initialize the page
   async function init() {
     const movies = await fetchMovieData();
-    createMovieItems(movies);
+    const loadingIndicator = document.getElementById('loading');
+
+    if (!movies || movies.length === 0) {
+      console.error('No movies found');
+      loadingIndicator.src = 'https://lottie.host/bdcdd61d-cdca-4989-8e6f-80d9342e65a5/J85wLgH56y.json';
+      return;
+    }
+    await createMovieItems(movies);
+    loadingIndicator.style.display = 'none';
+
   }
   
   // Run the initialization when the DOM is fully loaded
