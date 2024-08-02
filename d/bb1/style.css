@@ -1,0 +1,30 @@
+.st17{fill:none;stroke:#231F20;stroke-miterlimit:10;}
+.st0{fill:#75121E;}
+.st1{fill:#BE1E2D;}
+.st2{opacity:0.4;fill:#FFFFFF;}
+.st3{fill:#F9EEE4;}
+.st4{fill:#9BB8DA;}
+.st5{opacity:0.7;fill:#231F20;}
+.st6{fill:#E83E1C;}
+.st7{opacity:0.2;fill:#231F20;}
+.st8{opacity:0.2;fill:#FFFFFF;}
+.st9{fill:#FAEDCD;}
+.st10{fill:#601000;}
+.st11{fill:#ED1C24;}
+.st12{opacity:0.2;fill:#FFF200;}
+.st13{fill:#2B0022;}
+.st14{fill:#F16232;}
+.st15{opacity:0.3;fill:#FFF200;}
+.st16{fill:#F1F2F2;}
+
+body{background:#b55a90;}
+body,html {width:100% height:100%; margin: 0;padding: 0;}
+.container{position: absolute; max-width:100%; top: 0px; left: 0px; width: 800px; height: 800px; }
+#motionPath{visibility:hidden;}
+/* use for centering with js */
+#wrap {position: relative;max-width:100%; width: 800px; height: 800px; margin:auto 0; text-align:center;}
+#outer {position: relative; width: 800px; height: 800px; -webkit-transform-origin: top left;}
+/* end centering elements*/
+#SHOTfullSVG{display:none; visibility:hidden;}
+/* so I can see the ball */
+svg{overflow:visible;}

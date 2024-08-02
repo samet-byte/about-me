@@ -5,6 +5,15 @@ document.addEventListener("DOMContentLoaded", function () {
   var h = document.getElementById('skybox').offsetHeight;
   var s_h = Math.round(h / 32) * 32;
   document.getElementById('skybox').style.height = `${s_h}px`;
+
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const mainText = urlParams.get('text') || urlParams.get('t') || 'Game over';
+  const subText = urlParams.get('subtext') || urlParams.get('s') || '404 NOT FOUND';
+  const title = urlParams.get('title') || urlParams.get('ti') || 'Whoopsie!';
+
+  document.getElementById('text').innerHTML = mainText + '<br><span id="subtext">' + subText + '</span>';
+  document.title = title;
 });
 
 function walkLeft() {
