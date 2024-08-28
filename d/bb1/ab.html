@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flashcard Creator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+        .container {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        ol {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .input-group {
+            margin-top: 20px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .alert {
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            color: #721c24;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Create Your Flashcards</h1>
+        <ol>
+            <li>Open a new Google Spreadsheet.</li>
+            <li>Create 2 titles: <strong>front</strong> and <strong>back</strong></li>
+            <li>Fill the rows with your flashcard content
+                <img src="mysite.com/common/blog/assets/img/flash-card-simple/1.png" alt="Spreadsheet with front and back columns">
+            </li>
+            <li>Click on "Share"
+                <img src="mysite.com/common/blog/assets/img/flash-card-simple/2.png" alt="Share button in Google Sheets">
+            </li>
+            <li>Select General Access > Anyone with the link
+                <img src="mysite.com/common/blog/assets/img/flash-card-simple/3.png" alt="Share settings in Google Sheets">
+            </li>
+            <li>Copy just the id or link
+                <img src="mysite.com/common/blog/assets/img/flash-card-simple/4.png" alt="Copying spreadsheet ID">
+            </li>
+            <li>Paste the id or link below</li>
+        </ol>
+        <div class="alert">
+            <strong>Tip:</strong> Make sure your spreadsheet is shared with "Anyone with the link" to use it for flashcards.
+        </div>
+        <div class="input-group">
+            <input type="text" id="spreadsheetId" placeholder="Enter Google Spreadsheet ID or link">
+            <button onclick="redirectToFlashcards()">Create Flashcards</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToFlashcards() {
+            var spreadsheetId = document.getElementById('spreadsheetId').value;
+            if (spreadsheetId) {
+                // Extract the ID if a full URL is pasted
+                var matches = spreadsheetId.match(/[-\w]{25,}/);
+                if (matches) {
+                    spreadsheetId = matches[0];
+                }
+                var url = 'https://flashcards.yourdomain.com?id=' + encodeURIComponent(spreadsheetId);
+                window.open(url, '_blank');
+            } else {
+                alert('Please enter a Google Spreadsheet ID or link.');
+            }
+        }
+    </script>
+</body>
+</html>
